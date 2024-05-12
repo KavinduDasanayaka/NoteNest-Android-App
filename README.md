@@ -17,7 +17,7 @@ Clone the project and run in android studio
 
 ## Screenshot
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Screenshot 2024-05-12 181205](https://github.com/KavinduDasanayaka/NoteNest-Android-App/assets/127751216/dd541dc7-a4cb-4277-853f-51f8b6a75b4d)
 
 
 
