@@ -5,13 +5,13 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.example.notenestapp.database.NoteDatabase
 import com.example.notenestapp.repository.NoteRepository
-import com.example.notenestapp.viewmodel.NodeViewModel
+import com.example.notenestapp.viewmodel.NoteViewModel
 import com.example.notenestapp.viewmodel.NoteViewModelFactory
 
 class MainActivity : AppCompatActivity() {
 
 
-    lateinit var noteViewModel : NodeViewModel
+    lateinit var noteViewModel : NoteViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,10 +19,10 @@ class MainActivity : AppCompatActivity() {
 
         setupViewModel()
     }
-
     private fun setupViewModel(){
         val noteRepository = NoteRepository(NoteDatabase(this))
         val viewModelProviderFactory = NoteViewModelFactory(application,noteRepository)
-        noteViewModel = ViewModelProvider(this,viewModelProviderFactory)[NodeViewModel::class.java]
+        noteViewModel = ViewModelProvider(this,viewModelProviderFactory)[NoteViewModel::class.java]
     }
+
 }

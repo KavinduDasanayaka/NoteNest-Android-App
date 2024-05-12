@@ -19,14 +19,14 @@ import com.example.notenestapp.R
 import com.example.notenestapp.adapter.NoteAdapter
 import com.example.notenestapp.databinding.FragmentHomeBinding
 import com.example.notenestapp.model.Notes
-import com.example.notenestapp.viewmodel.NodeViewModel
+import com.example.notenestapp.viewmodel.NoteViewModel
 
 class HomeFragment : Fragment(R.layout.fragment_home),SearchView.OnQueryTextListener,MenuProvider {
 
     private var homeBinding: FragmentHomeBinding? =  null
     private val binding get() = homeBinding!!
 
-    private lateinit var  noteViewModel: NodeViewModel
+    private lateinit var  noteViewModel: NoteViewModel
     private lateinit var noteAdapter: NoteAdapter
 
 
@@ -35,7 +35,7 @@ class HomeFragment : Fragment(R.layout.fragment_home),SearchView.OnQueryTextList
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         homeBinding = FragmentHomeBinding.inflate(inflater,container,false  )
         return binding.root
@@ -49,13 +49,12 @@ class HomeFragment : Fragment(R.layout.fragment_home),SearchView.OnQueryTextList
 
         noteViewModel = (activity as MainActivity).noteViewModel
 
-        setupHomeRecycleView()
+        setupHomeRecyclerView()
 
         binding.addNote.setOnClickListener(){
             it.findNavController().navigate(R.id.action_homeFragment_to_addNoteFragment)
 
         }
-
 
     }
 
@@ -72,7 +71,7 @@ class HomeFragment : Fragment(R.layout.fragment_home),SearchView.OnQueryTextList
         }
     }
 
-    private fun setupHomeRecycleView(){
+    private fun setupHomeRecyclerView(){
         noteAdapter = NoteAdapter()
         binding.homeRecyclerView.apply {
             layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
@@ -84,7 +83,6 @@ class HomeFragment : Fragment(R.layout.fragment_home),SearchView.OnQueryTextList
             noteViewModel.getAllNotes().observe(viewLifecycleOwner){note ->
                 noteAdapter.differ.submitList(note)
                 updateUI(note)
-
             }
         }
     }
@@ -118,6 +116,8 @@ class HomeFragment : Fragment(R.layout.fragment_home),SearchView.OnQueryTextList
         menuInflater.inflate(R.menu.home_menu,menu)
 
         val menuSearch = menu.findItem(R.id.searchNotes).actionView as SearchView
+
+        menuSearch.isSubmitButtonEnabled = false
         menuSearch.setOnQueryTextListener(this)
 
     }

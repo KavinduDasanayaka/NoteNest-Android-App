@@ -32,7 +32,7 @@
             app:destination="@id/homeFragment" />
 
         <argument
-            android:name="note"
+            android:name="notes"
             app:argType="com.example.notenestapp.model.Notes"
             app:nullable="true"/>
     </fragment>

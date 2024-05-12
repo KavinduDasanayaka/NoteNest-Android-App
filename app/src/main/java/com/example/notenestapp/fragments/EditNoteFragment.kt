@@ -2,7 +2,6 @@ package com.example.notenestapp.fragments
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.view.FrameStats
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.Menu
@@ -20,13 +19,13 @@ import com.example.notenestapp.MainActivity
 import com.example.notenestapp.R
 import com.example.notenestapp.databinding.FragmentEditNoteBinding
 import com.example.notenestapp.model.Notes
-import com.example.notenestapp.viewmodel.NodeViewModel
+import com.example.notenestapp.viewmodel.NoteViewModel
 
 class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider{
 
     private var editNoteBinding:FragmentEditNoteBinding? = null
     private val binding get() = editNoteBinding!!
-    private lateinit var notesViewModel: NodeViewModel
+    private lateinit var notesViewModel: NoteViewModel
     private lateinit var currentNote :Notes
 
     private val args:EditNoteFragmentArgs by navArgs()
@@ -36,7 +35,7 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider{
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         editNoteBinding = FragmentEditNoteBinding.inflate(inflater,container,false)
         return binding.root
@@ -49,7 +48,7 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider{
         menuHost.addMenuProvider(this,viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         notesViewModel = (activity as MainActivity).noteViewModel
-        currentNote = args.note!!
+        currentNote = args.notes!!
 
         binding.editNoteTitle.setText(currentNote.noteTitle)
         binding.editNoteDesc.setText(currentNote.noteDesc)

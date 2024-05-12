@@ -17,7 +17,7 @@ import com.example.notenestapp.MainActivity
 import com.example.notenestapp.R
 import com.example.notenestapp.databinding.FragmentAddNoteBinding
 import com.example.notenestapp.model.Notes
-import com.example.notenestapp.viewmodel.NodeViewModel
+import com.example.notenestapp.viewmodel.NoteViewModel
 
 class AddNoteFragment : Fragment(R.layout.fragment_add_note), MenuProvider{
 
@@ -25,12 +25,12 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note), MenuProvider{
     private val binding get() = addNoteBinding!!
 
 
-    private lateinit var notesViewModel: NodeViewModel
+    private lateinit var notesViewModel: NoteViewModel
     private lateinit var addNoteView: View
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         addNoteBinding = FragmentAddNoteBinding.inflate(inflater,container,false)
         return binding.root
@@ -51,7 +51,7 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note), MenuProvider{
         val noteDesc = binding.addNoteDesc.text.toString().trim()
 
         if(noteTitle.isNotEmpty()) {
-            val note = Notes(id, noteTitle, noteDesc)
+            val note = Notes(0, noteTitle, noteDesc)
             notesViewModel.addNote(note)
 
             Toast.makeText(addNoteView.context, "Note Saved", Toast.LENGTH_SHORT).show()
@@ -59,10 +59,7 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note), MenuProvider{
 
         }else{
             Toast.makeText(addNoteView.context, "Please enter note title", Toast.LENGTH_SHORT).show()
-
             }
-
-
     }
 
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
