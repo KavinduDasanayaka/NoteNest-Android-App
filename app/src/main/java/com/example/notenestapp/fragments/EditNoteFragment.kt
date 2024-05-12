@@ -79,7 +79,7 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider{
                 Toast.makeText(context,"Note Deleted" ,Toast.LENGTH_SHORT).show()
                 view?.findNavController()?.popBackStack(R.id.homeFragment,false)
             }
-            setNegativeButton("Calcle",null)
+            setNegativeButton("Cancel",null)
         }.create().show()
 
 
