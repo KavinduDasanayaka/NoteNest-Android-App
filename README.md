@@ -1,3 +1,4 @@
+[![My Skills](https://skillicons.dev/icons?i=git,kotlin,androidstudio)](https://skillicons.dev)
 
 # NoteNest Mobile App
 
