@@ -14,4 +14,7 @@
     <string name="description">Description</string>
     <string name="note_title">Note Title</string>
     <string name="notenest">NoteNest</string>
+    <string name="Date">Date\n</string>
+    <string name="enter_the_date">Enter the date</string>
+    <string name="notedate">noteDate</string>
 </resources>

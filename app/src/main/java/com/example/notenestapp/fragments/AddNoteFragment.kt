@@ -49,9 +49,11 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note), MenuProvider{
     private fun saveNote(view:View){
         val noteTitle = binding.addNoteTitle.text.toString().trim()
         val noteDesc = binding.addNoteDesc.text.toString().trim()
+        val noteDate = binding.addnoteDate.text.toString().trim()
+
 
         if(noteTitle.isNotEmpty()) {
-            val note = Notes(0, noteTitle, noteDesc)
+            val note = Notes(0, noteTitle, noteDesc , noteDate)
             notesViewModel.addNote(note)
 
             Toast.makeText(addNoteView.context, "Note Saved", Toast.LENGTH_SHORT).show()

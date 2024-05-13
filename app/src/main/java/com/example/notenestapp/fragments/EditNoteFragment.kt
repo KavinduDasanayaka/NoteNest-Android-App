@@ -52,13 +52,15 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider{
 
         binding.editNoteTitle.setText(currentNote.noteTitle)
         binding.editNoteDesc.setText(currentNote.noteDesc)
+        binding.editnoteDate.setText(currentNote.noteDate)
 
         binding.editNoteFab.setOnClickListener {
             val noteTitle = binding.editNoteTitle.text.toString().trim()
             val noteDesc = binding.editNoteDesc.text.toString().trim()
+            val noteDate = binding.editnoteDate.text.toString().trim()
 
             if(noteTitle.isNotEmpty()){
-                val note = Notes(currentNote.id,noteTitle,noteDesc)
+                val note = Notes(currentNote.id,noteTitle,noteDesc,noteDate)
                 notesViewModel.updateNote(note)
                 view.findNavController().popBackStack(R.id.homeFragment,false)
             }else{

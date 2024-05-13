@@ -21,7 +21,8 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>(){
         override fun areItemsTheSame(oldItem: Notes, newItem: Notes): Boolean {
             return oldItem.id == newItem.id &&
                     oldItem.noteDesc == newItem.noteDesc &&
-                    oldItem.noteTitle == newItem.noteTitle
+                    oldItem.noteTitle == newItem.noteTitle &&
+                    oldItem.noteDate == newItem.noteDate
         }
 
         override fun areContentsTheSame(oldItem: Notes, newItem: Notes): Boolean {
@@ -46,6 +47,7 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>(){
 
         holder.itemBinding.noteTitle.text = currentNote.noteTitle
         holder.itemBinding.noteDesc.text = currentNote.noteDesc
+        holder.itemBinding.noteDate.text = currentNote.noteDate
 
         //send data from home fragment to edit fragment
         holder.itemView.setOnClickListener {
