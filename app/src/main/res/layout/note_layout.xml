@@ -34,7 +34,7 @@
                 android:fontFamily="@font/poppins"
                 android:text="@string/notedate"
                 android:textStyle="bold"
-                android:textSize="15dp"/>
+                android:textSize="15sp"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

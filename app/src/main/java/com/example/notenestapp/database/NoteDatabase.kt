@@ -41,9 +41,9 @@ abstract class NoteDatabase : RoomDatabase() {
 
         // Migration from version 1 to version 2
         private val MIGRATION_1_2: Migration = object : Migration(1, 2) {
-            override fun migrate(database: SupportSQLiteDatabase) {
+            override fun migrate(db: SupportSQLiteDatabase) {
                 // Add the new column noteDate to the notes table
-                database.execSQL("ALTER TABLE notes ADD COLUMN noteDate TEXT NOT NULL DEFAULT ''")
+                db.execSQL("ALTER TABLE notes ADD COLUMN noteDate TEXT NOT NULL DEFAULT ''")
             }
         }
     }
