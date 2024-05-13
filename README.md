@@ -1,4 +1,4 @@
-[![My Skills](https://skillicons.dev/icons?i=git,kotlin,androidstudio)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=git,kotlin,androidstudio)]([https://skillicons.dev](https://github.com/KavinduDasanayaka))
 
 # NoteNest Mobile App
 
