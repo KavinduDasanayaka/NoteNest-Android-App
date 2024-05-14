@@ -55,7 +55,6 @@ class HomeFragment : Fragment(R.layout.fragment_home),SearchView.OnQueryTextList
             it.findNavController().navigate(R.id.action_homeFragment_to_addNoteFragment)
 
         }
-
     }
 
     private fun updateUI(note:List<Notes>?){
